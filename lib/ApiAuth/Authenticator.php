@@ -62,7 +62,7 @@ trait Authenticator
             'user' => null
         );
         if ($httpcode != 200) {
-            returb $return;
+            return $return;
         }
 if (!empty($jsonResponse)) {
         if ($httpcode === 200) {
