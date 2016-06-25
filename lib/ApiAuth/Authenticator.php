@@ -58,25 +58,29 @@ trait Authenticator
 
         $return = (object)array(
             'success' => false,
-            'error' => null,
+            'error' => "Unkown error",
             'user' => null
         );
-
+        if ($httpcode != 200) {
+            returb $return;
+        }
+if (!empty($jsonResponse)) {
         if ($httpcode === 200) {
-            $return->success = true;
-            if (!empty($jsonResponse)) {
-                if (isset($jsonResponse->user)) {
-                    $return->user = $jsonResponse->user;
-                }
-            }
+			    if ($jsonResponse->staus == 3)
+				{
+                    $return->success = true;
+                    if (isset($jsonResponse->user_row)) {
+                        $return->user = $jsonResponse->user_row;
+                    }
+				}
         } else {
             if (!empty($jsonResponse)) {
-                if (isset($jsonResponse->error)) {
-                    $return->error = $jsonResponse->error;
+                if (isset($jsonResponse->error_msg)) {
+                    $return->error = $jsonResponse->error_msg;
                 }
             }
         }
-
+}
         return $return;
     }
 }

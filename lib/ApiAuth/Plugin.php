@@ -18,10 +18,10 @@ class Plugin extends \Plugin
         }
 
         // TODO
-        /*if ($enabledFor === 'all' || $enabledFor === 'client') {
+        if ($enabledFor === 'all' || $enabledFor === 'client') {
             \UserAuthenticationBackend::register(
-                new ClientAuthBackend($this->getConfig())
+                new UserAuthBackend($this->getConfig())
             );
-        }*/
+        }
     }
 }

@@ -46,8 +46,8 @@ class Config extends PluginConfig
                     'choices' => array(
                         '0' => $trans('Disabled'),
                         'staff' => $trans('Agents (Staff) Only'),
-                        //'client' => $trans('Clients Only'),
-                        //'all' => $trans('Agents and Clients'),
+                        'client' => $trans('Clients Only'),
+                        'all' => $trans('Agents and Clients'),
                     ),
                 )
             ),
